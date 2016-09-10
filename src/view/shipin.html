@@ -1,0 +1,51 @@
+<ion-scroll direction="x" paging="false" scrollbar-x="false" on-scroll="say()">
+	
+	<a class="active" href="#/shipin/dazahui">大杂烩</a>
+	<a href="#/shipin/xiaofantian">笑翻天</a>
+	<a href="#/shipin/qipashi">奇葩事</a>
+	<a href="#/shipin/yuluequan">娱乐圈</a>
+	<a href="#/shipin/youximi">游戏迷</a>
+</ion-scroll>
+
+<div ui-view="">
+
+</div>
+
+<div class="tabs tabs-icon-top">
+	<a class="tab-item" href="#/toutiao">
+		<i class="icon ion-ios-home-outline"></i> 头条
+	</a>
+	<a class="tab-item" href="#/shipin">
+		<i class="icon ion-social-youtube-outline"></i> 视频
+	</a>
+	<a class="tab-item" href="#/mine">
+		<i class="icon ion-social-octocat"></i> 我的
+	</a>
+</div>
+<style type="text/css">
+	.tab-item:nth-of-type(2) {
+		color: #e623f2;
+	}
+	/*头部滚动条样式*/
+	
+	ion-scroll {
+		height: 50px;
+		white-space: nowrap;
+		position: fixed;
+		border-bottom: 1px solid #ccc;
+	}
+	
+	ion-scroll a {
+		font-size: 18px;
+		line-height: 50px;
+		color: black;
+		margin: 0 10px;
+		text-decoration: none;
+		padding: 10px 0;
+	}
+	
+	.active {
+		color: #e623f2;
+		border-bottom: 2px solid #e623f2;
+	}
+</style>

@@ -1,0 +1,74 @@
+
+<ion-scroll direction="x" paging="false" scrollbar-x="false" on-scroll="say()">
+	<a class="active" href="#/toutiao/tuijian">推荐</a>
+	<a href="#/toutiao/shehui">社会</a>
+	<a href="#/toutiao/gaoxiao">搞笑</a>
+	<a href="#/toutiao/qiwen">奇闻</a>
+	<a href="#/toutiao/lizhi">励志</a>
+	<a href="#/toutiao/yangsheng">养生</a>
+	<a href="#/toutiao/yulue">娱乐</a>
+	<a href="#/toutiao/keji">科技</a>
+	<a href="#/toutiao/baike">百科</a>
+	<a href="#/toutiao/caijing">财经</a>
+	<a href="#/toutiao/qiche">汽车</a>
+	<a href="#/toutiao/qinggan">情感</a>
+	<a href="#/toutiao/xingzuo">星座</a>
+	<a href="#/toutiao/meishi">美食</a>
+	<a href="#/toutiao/shishang">时尚</a>
+	<a href="#/toutiao/luyou">旅游</a>
+	<a href="#/toutiao/yuer">育儿</a>
+	<a href="#/toutiao/tiyu">体育</a>
+	<a href="#/toutiao/junshi">军事</a>
+</ion-scroll>
+
+
+<div id="hdxr">
+	<div ui-view="" ></div>
+</div>
+	
+	
+	
+
+<div class="tabs tabs-icon-top">
+	<a class="tab-item" href="#/toutiao">
+		<i class="icon ion-ios-home-outline"></i>刷新
+	</a>
+	<a class="tab-item" href="#/shipin">
+		<i class="icon ion-social-youtube-outline"></i>视频
+	</a>
+	<a class="tab-item" href="#/mine">
+		<i class="icon ion-social-octocat"></i>我的
+	</a>
+</div>
+<style type="text/css">
+.tab-item:nth-of-type(1){
+	color: #e623f2;
+}
+	ion-content {
+		position: fixed!important;
+		top: 40px!important;
+		margin-bottom: 50px!important;
+	}
+/*头部滚动条样式*/
+	
+	ion-scroll {
+		height: 50px;
+		white-space: nowrap;
+		position: fixed;
+		border-bottom: 1px solid #ccc;
+	}
+	
+	ion-scroll a {
+		font-size: 18px;
+		line-height: 50px;
+		color: black;
+		margin: 0 10px;
+		text-decoration: none;
+		padding: 10px 0;
+		
+	}
+	.active{
+		color: #e623f2;
+		border-bottom: 2px solid #e623f2;
+	}
+</style>
