@@ -20,20 +20,20 @@ app.service('swiper', [function() {
 			}
 			var touch = {}
 			document.getElementById('hdxr').addEventListener('touchstart', function(e) {
-				console.log("点击滑动前");
+//				console.log("点击滑动前");
 				touch.x1 = e.targetTouches[0].pageX;
 				touch.y1 = e.targetTouches[0].pageY;
-				console.log('X:' + e.targetTouches[0].pageX + ' Y:' + e.targetTouches[0].pageY);
+//				console.log('X:' + e.targetTouches[0].pageX + ' Y:' + e.targetTouches[0].pageY);
 				//$scope.$apply();
 			})
 			var ab = function(e) {
-				console.log("点击滑动后");
+//				console.log("点击滑动后");
 				touch.x2 = e.changedTouches[0].pageX;
 				touch.y2 = e.changedTouches[0].pageY;
-				console.log('X:' + e.changedTouches[0].pageX + ' Y:' + e.changedTouches[0].pageY)
-				console.log(direction(touch.x1, touch.x2, touch.y1, touch.y2));
+//				console.log('X:' + e.changedTouches[0].pageX + ' Y:' + e.changedTouches[0].pageY)
+//				console.log(direction(touch.x1, touch.x2, touch.y1, touch.y2));
 				var swiDirection = direction(touch.x1, touch.x2, touch.y1, touch.y2)
-				console.log(swiDirection)
+//				console.log(swiDirection)
 				if(swiDirection == 'bottom') {
 					//手动刷新
 					typeof callbackBottom==='function' && callbackBottom();
