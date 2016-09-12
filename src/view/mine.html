@@ -1,73 +1,92 @@
-<div ng-controller="RootCtrl">
-    
-    <ion-tabs class="tabs-icon-only tabs-positive">
+<ion-tabs class="tabs-icon-only tabs-positive">
 
-      <ion-tab title="Home" 
-               icon-on="ion-ios7-filing" 
-               icon-off="ion-ios7-filing-outline" 
-               ng-controller="HomeCtrl">
-        
-        <ion-header-bar class="bar-positive">
-          <button class="button button-clear" ng-click="newTask()">New</button>
-          <h1 class="title">Tasks</h1>
-        </ion-header-bar>
-        
-        <ion-content has-tabs="true" on-refresh="onRefresh()">
+	<ion-tab title="Home" icon-on="ion-ios7-filing" icon-off="ion-ios7-filing-outline" ng-controller="mineAppCtrl">
 
-          <ion-refresher></ion-refresher>
-          <ion-list scroll="false" on-refresh="onRefresh()"
-                    s-editing="isEditingItems" 
-                    animation="fade-out"
-                    delete-icon="icon ion-minus-circled">
-            <ion-item ng-repeat="item in items"
-                      item="item"
-                      buttons="item.buttons"
-                      can-delete="true"
-                      can-swipe="true"
-                      on-delete="deleteItem(item)"
-                      ng-class="{completed: item.isCompleted}">
-              {{item.title}}
-              <i class="{{item.icon}}"></i>
-            </ion-item>
-          </ion-list>
-        </ion-content>
-      </ion-tab>
+		<ion-header-bar class="bar bar-header" id="denglu">
+			<h1 class="title">登录</h1>
+		</ion-header-bar>
+		<div class="content has-header">
+			
+			<!--验证用户名和密码-->
+			<div class="list list-inset" >
+				<form name="form">
+					<label class="item item-input">
+	          			<input type="text" name="user" ng-model="user" value="" placeholder="请输入用户名" required=" required">
+	          				<p ng-show="form.user.$dirty && form.user.$invalid">
+								<span ng-show="form.user.$error.required">必须输入用户名</span>
+							</p>
+	       			</label>
+	       			
+					<label class="item item-input">
+	          			<input type="password" name="password" ng-model="password" placeholder="请输入密码" required=" required">
+	        		</label>
+        		</form>
+			</div>
+			
+<!--			点击验证-->
+			<div class="padding">
+				<button ng-click="login()" ng-disabled="form.user.$dirty && form.user.$invalid || form.password.$dirty && form.password.$invalid" class="button button-block button-positive" id="denglu">登录</button>
+			</div>
+			
+			<div class="padding">
+				<button id='zhuce' class="button button-block button-outline " ng-click="zhuce()">新用户注册送1元现金红包</button>
+			</div>
+		</div>
+		<!--<form name="form">
+						<input type="text" name="user" ng-model="user" placeholder="请输入用户名" required=" required"/>
+							<p ng-show="form.user.$dirty && form.user.$invalid">
+								<span ng-show="form.user.$error.required">必须输入用户名</span>
+							</p>
+							
+							<!--<p ng-show="form.user.$dirty">你输入过内容</p>
+							<p ng-show="form.user.$pristine">你没输入过内容</p>
+							<p ng-show="form.user.$valid">你输入的是合法</p>
+							<p ng-show="form.user.$invalid">你输入的是不合法</p>-->
+							
+						<!--<input type="password"name="password" ng-model="password" placeholder="请输入密码" required=" required"/>
+							<p ng-show="form.password.$dirty && form.password.$invalid">
+								<span ng-show="form.password.$error.required">必须输入密码</span>
+							</p>
+							
+						<input ng-click="login()" ng-disabled="form.user.$dirty && form.user.$invalid || form.password.$dirty && form.password.$invalid" type="submit"/>
+					</form>-->-->
+	</ion-tab>
 
-      <ion-tab title="About" icon-on="icon ion-ios7-clock" icon-off="icon ion-ios7-clock-outline">
-        <header class="bar bar-header bar-positive">
-          <h1 class="title">Deadlines</h1>
-        </header>
-        <ion-content has-header="true">
-          <h1>Deadlines</h1>
-        </ion-content>
-      </ion-tab>
-
-      <ion-tab title="Settings" icon-on="icon ion-ios7-gear" icon-off="icon ion-ios7-gear-outline">
-        <header class="bar bar-header bar-positive">
-          <h1 class="title">Settings</h1>
-        </header>
-        <ion-content has-header="true">
-          <h1>Settings</h1>
-        </ion-content>
-      </ion-tab>
-      
-    </ion-tabs>
-
-    <script id="newTask.html" type="text/ng-template">
-      <div id="task-view" class="modal slide-in-up" ng-controller="TaskCtrl">
-        <header class="bar bar-header bar-secondary">
-          <h1 class="title">New Task</h1>
-          <button class="button button-clear button-primary" ng-click="close()">Done</button>
-        </header>
-        <ion-content class="padding has-header">
-          <input type="text" placeholder="I need to do this...">
-        </ion-content>
-      </div>
-    </script>
-
-  </div>
+        	
+     
+</ion-tabs>
 
 
+<script id="zhuce.html" type="text/ng-template">
+	<div id="task-view" class="modal slide-in-up" ng-controller="zhuceCtrl">
+		<ion-header-bar class="bar bar-header" id="denglu">
+			<h1 class="title">注册</h1>
+			
+		</ion-header-bar>
+		<div class="content has-header">
+			<div class="list list-inset">
+				<label class="item item-input">
+          			<input type="text" placeholder="手机号">
+       			</label>
+				<label class="item item-input">
+          			<input type="text" placeholder="请输入图片码">
+        		</label>
+        		<label class="item item-input">
+          			<input type="text" placeholder="请输入验证码">
+       			</label>
+				<label class="item item-input">
+          			<input type="text" placeholder="请设置密码(6-20位字母或数字)">
+        		</label>
+			</div>
+			<div class="padding">
+				<button class="button button-block button-positive" id="denglu">注册并领取红包</button>
+			</div>
+			<div class="padding">
+				<button id='zhuce' class="button button-block button-outline " ng-click="close()">已注册，马上登录</button>
+			</div>
+		</div>
+	</div>
+</script>
 
 <div class="tabs tabs-icon-top">
 	<a class="tab-item" href="#/toutiao">
@@ -81,7 +100,18 @@
 	</a>
 </div>
 <style type="text/css">
-.tab-item:nth-of-type(3){
-	color: #e623f2;
-}
+	.tab-item:nth-of-type(3) {
+		color: #e623f2;
+	}
+	#zhuce{
+		color: #e623f2;
+		border-color:#e623f2; 
+	}
+	#denglu{
+		background-color:#e623f2 ;
+	}
+	.bar .title{
+		color: #fff;
+	}
+	
 </style>

@@ -54,7 +54,7 @@ app.service('swiper', [function() {
 			}
 			
 			function direction(xStart, xEnd, yStart, yEnd) {
-				return Math.abs(xStart - xEnd) >= Math.abs(yStart - yEnd) ? (xStart >= xEnd ? "left" : "right") : (yStart >= yEnd ? "top" : "bottom");
+				return Math.abs(xStart - xEnd) >Math.abs(yStart - yEnd) ? (xStart > xEnd ? "left" : "right") : (yStart > yEnd ? "top" : "bottom");
 			}
 			document.getElementById('hdxr').addEventListener('touchend', ab);
 		}
