@@ -1,5 +1,7 @@
-app.controller('indexCtrl', ['$scope', '$http', function($scope, $http) {
-
+app.controller('indexCtrl', ['$scope','$ionicSideMenuDelegate', '$http', function($scope, $http,$ionicSideMenuDelegate) {
+	$scope.toggleLeftSideMenu = function() {
+    	$ionicSideMenuDelegate.toggleLeft();
+  	};
 }])
 
 app.controller('toutiaoCtrl', ['$scope', '$http', '$rootScope', 'swiper', function($scope, $http, $rootScope, swiper) {
@@ -43,6 +45,27 @@ app.controller('toutiaoCtrl', ['$scope', '$http', '$rootScope', 'swiper', functi
 	}])
 	//推荐                     
 app.controller('tuijianCtrl', ['$rootScope', '$scope', '$http', 'swiper', function($rootScope, $scope, $http, swiper) {
+	//获取广告接口数据
+	$http.get('ad.php').success(function(data) {
+			console.log(data);
+			$scope.items =data.newslist;
+		})
+//		//获取新闻接口数据
+//	$http.get('tuijian.php').success(function(data) {
+//		console.log(data);
+//		$scope.news = data;
+//	})
+	
+
+	$scope.doRefresh = function() {
+		$http.get('ad.php') //注意改为自己本站的地址，不然会有跨域问题
+			.success(function(newData) {
+				$scope.items = newData.newslist;
+			})
+			.finally(function() {
+				$scope.$broadcast('scroll.refreshComplete');
+			});
+	};
 
 }]);
 //社会
@@ -177,7 +200,7 @@ app.controller('youximiCtrl', ['$rootScope', '$scope', '$http', 'swiper', functi
 }]);
 
 //我的登录注册
-app.controller('mineAppCtrl', ['$scope', '$http','$ionicModal', function($scope, $http, $ionicModal) {
+app.controller('mineAppCtrl', ['$scope', '$http', '$ionicModal', function($scope, $http, $ionicModal) {
 	//注册页的模版
 	$ionicModal.fromTemplateUrl('zhuce.html', function(modal) {
 		$scope.settingsModal = modal;
@@ -187,26 +210,25 @@ app.controller('mineAppCtrl', ['$scope', '$http','$ionicModal', function($scope,
 		$scope.settingsModal.show();
 	};
 	//验证登录的用户名和密码
-	
-	
+
 	$scope.login = function() {
 		//rsa加密 rsa.js
-		$scope.user="1212";
-		
+		$scope.user = "1212";
+
 		console.log($scope.user);
 		console.log($scope.password);
-//		$http.jsonp("login.php", {
-//			params: {
-//				callback: "JSON_CALLBACK",
-//				user: $scope.user,
-//				password: $scope.password
-//			}
-//		}).success(function(data) {
-//			console.log(data)
-//		}).error(function(data) {
-//			console.log(data)
-//		})
-		
+		//		$http.jsonp("login.php", {
+		//			params: {
+		//				callback: "JSON_CALLBACK",
+		//				user: $scope.user,
+		//				password: $scope.password
+		//			}
+		//		}).success(function(data) {
+		//			console.log(data)
+		//		}).error(function(data) {
+		//			console.log(data)
+		//		})
+
 	}
 
 }])

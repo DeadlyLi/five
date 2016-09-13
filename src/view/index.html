@@ -1,1 +1,116 @@
-index
+<ion-view title="Playlists">
+<ion-side-menus>
+	<!--按键-->
+
+  	<ion-pane ion-side-menu-content>
+	    <ion-nav-bar class="bar-stable nav-title-slide-ios7" >
+				
+			<ion-nav-back-button menu-toggle="left"  class=" button button-icon icon ion-navicon"></ion-nav-back-button>
+			
+			<div id="cao">
+				<h4>趣多多</h4>
+			</div>
+		</ion-nav-bar>
+	
+        <ion-content>
+			999
+		</ion-content>
+	</ion-pane>
+
+
+	<!--左侧布局-->
+	<ion-side-menu side="left" >
+		<header class="bar bar-header bar-stable">
+			<h1 class="title">菜单栏</h1>
+		</header>
+		<ion-content class="has-header">
+			<ion-list>
+				<ion-item nav-clear menu-close href="#/app/search">
+					第一项
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/browse">
+					第二项
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/playlists">
+					第三项
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/browse">
+					第四项
+				</ion-item>
+				<ion-item nav-clear menu-close href="#/app/playlists">
+					第五项
+				</ion-item>
+			</ion-list>
+			
+		</ion-content>
+	
+	</ion-side-menu>
+	
+</ion-side-menus>
+  </ion-view>  
+<div class="tabs tabs-icon-top">
+	<a class="tab-item" href="#/index">
+		<i class="icon ion-ios-home-outline"></i>首页
+	</a>
+	<a class="tab-item" href="#/toutiao">
+		<i class="icon ion-ios-paper-outline"></i>头条
+	</a>
+	<a class="tab-item" href="#/shipin">
+		<i class="icon ion-social-youtube-outline"></i>视频
+	</a>
+	<a class="tab-item" href="#/mine">
+		<i class="icon ion-social-octocat"></i>我的
+	</a>
+</div>
+<style type="text/css">
+	.tab-item:nth-of-type(1) {
+		color: #e623f2;
+	}
+	
+	ion-content {
+		position: fixed!important;
+		top: 40px!important;
+		margin-bottom: 50px!important;
+	}
+	/*右侧*/
+	
+	.bar .back-button.hide,
+	.bar .buttons .hide {
+		display: block;
+	}
+	
+
+	
+
+	.bar .buttons span {
+		display: none;
+	}
+	.bar.bar-stable{
+		position: relative;
+		background: #e623f2;
+		
+	}
+	.bar.bar-stable .title{
+		color: #fff;
+	}
+	#cao h4{
+		width: 60px;
+		position: absolute;
+		left: 50%;
+		margin-left: -30px;
+		top: 0;
+		z-index: 10;
+		font-size: 20px;
+		color: #fff;
+	}
+	.bar-stable .button{
+		color: #fff;
+	}
+	.bar-stable .button:hover{
+		color: #fff;
+	}
+   
+	.item,.item-complex .item-content, .item-radio .item-content{
+		border-bottom: 1px solid #e623f2;
+	}
+</style>
